@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Routes created to understand static dynamic website behaviour
+Route::get('statichelloworld', 'HelloWorldController@staticIndex');
+Route::get('dynamichelloworld', 'HelloWorldController@dynamicIndex');
