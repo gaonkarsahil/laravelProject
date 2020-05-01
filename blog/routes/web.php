@@ -20,3 +20,6 @@ Route::get('/', function () {
 //Routes created to understand static dynamic website behaviour
 Route::get('statichelloworld', 'HelloWorldController@staticIndex');
 Route::get('dynamichelloworld', 'HelloWorldController@dynamicIndex');
+
+//Route created to understand master template working
+Route::get('mastertemplate', 'MasterTemplateController@index');
