@@ -1,0 +1,2 @@
+{{ $nameone }}
+{{ $nametwo }}
