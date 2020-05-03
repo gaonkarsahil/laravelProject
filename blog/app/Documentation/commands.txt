@@ -1,0 +1,38 @@
+Creating separate branch (this will be main branch) for implementing simple package from develop.
+
+git checkout -b feature/basic-learning-part-Five
+
+
+Pushing the branch on github ( this will be same as develop for now)
+
+git push origin feature/basic-learning-part-Five 
+
+
+Creating sub branch whose code will be pushed on feature/basic-learning-part-Five
+
+git checkout -b feature/blog-part-Five
+
+
+Currently i m in blog directory so i will create packages/sahilgaonkar/greet/ these folders inside it and change directory to greet.
+
+cd packages/sahilgaonkar/greet/
+
+
+This command is use to make current folder as a package. It will basic information about package.
+
+composer init
+
+
+Change directory back to blog
+
+cd /laravelProject/blog/
+
+
+This command will reload the composer with our changes added to it.
+
+composer dump-autoload
+
+
+To run the server
+
+php artisan serve
