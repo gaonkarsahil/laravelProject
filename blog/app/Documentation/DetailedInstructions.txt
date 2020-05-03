@@ -1,0 +1,105 @@
+Creating separate branch (this will be main branch) for implementing simple package from develop.
+
+git checkout -b feature/basic-learning-part-Five
+
+
+Pushing the branch on github ( this will be same as develop for now)
+
+git push origin feature/basic-learning-part-Five 
+
+
+Creating sub branch whose code will be pushed on feature/basic-learning-part-Five
+
+git checkout -b feature/blog-part-Five
+
+
+Currently i m in blog directory so i will create packages/sahilgaonkar/greet/ these folders inside it and change directory to greet.
+
+cd packages/sahilgaonkar/greet/
+
+
+This command is use to make current folder as a package. It will basic information about package.
+
+composer init
+
+
+Package name (<vendor>/<name>) [root/greet]: sahilgaonkar/greet
+Description []: Simple package for greeting.
+Author [gaonkarsahil <sahilgaonkar24@gmail.com>, n to skip]: 
+Minimum Stability []: dev
+Package Type []: project
+License []: MIT
+
+Define your dependencies.
+
+Would you like to define your dependencies (require) interactively [yes]? no
+Would you like to define your dev dependencies (require-dev) interactively [yes]? no
+
+
+
+Open composer.json file located inside greet folder and add following code
+
+
+    "autoload": {
+        "psr-4": {
+            "Sahilgaonkar\\Greet\\": "src/"
+        }
+    },
+
+
+
+Change directory back to blog
+
+cd /laravelProject/blog/
+
+
+Open composer.json file located in blog folder and add following code in psr-4
+
+            "App\\": "app/",
+            "Sahilgaonkar\\Greet\\": "packages/sahilgaonkar/greet/src"
+
+
+
+This command will reload the composer with our changes added to it.
+
+composer dump-autoload
+
+
+
+Create the Greet.php class inside the src folder located inside greet folder and add following code to it
+
+<?php
+
+namespace Sahilgaonkar\Greet;
+
+class Greet
+{
+    public function greet(String $name)
+    {
+        return 'Hi ' . $name . '. Welcome To Learning About Packages.';
+    }
+}
+
+
+
+Go to routes and open web.php file and add following code 
+
+use Sahilgaonkar\Greet\Greet;
+
+
+Route::get('/greet/{name}', function($name) {
+    $greet = new Greet();
+    return $greet->greet($name);
+});
+
+
+
+To run the server
+
+php artisan serve
+
+
+
+open browser and hit following url
+
+http://localhost:8000/greet/Sahil

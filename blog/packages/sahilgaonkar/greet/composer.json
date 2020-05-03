@@ -1,0 +1,19 @@
+{
+    "name": "sahilgaonkar/greetr",
+    "description": "Simple package for greeting.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "gaonkarsahil",
+            "email": "sahilgaonkar24@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Sahilgaonkar\\Greet\\": "src/"
+        }
+    },
+    "require": {}
+}

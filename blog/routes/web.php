@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Sahilgaonkar\Greet\Greet;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/greet/{name}', function($name) {
+    $greet = new Greet();
+    return $greet->greet($name);
 });
